@@ -1,0 +1,30 @@
+# Set default line endings for text files to LF (Unix-style)
+# This ensures consistency across different operating systems.
+*.txt text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+
+# Treat specific file types as binary, preventing Git from attempting
+# to perform line ending conversions or showing diffs in a textual manner.
+*.png binary
+*.jpg binary
+*.gif binary
+*.pdf binary
+*.zip binary
+
+# Define a custom merge driver for specific file types.
+# This might be used for files like `.csproj` in .NET projects.
+*.csproj merge=union
+
+# Mark certain files as generated, collapsing them in diffs.
+# Useful for files that are automatically generated and not meant for manual editing.
+/dist/** linguist-generated
+/build/** linguist-generated
+
+# Use Git LFS for large files to keep them out of the main repository.
+# This requires Git LFS to be installed and configured.
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.iso filter=lfs diff=lfs merge=lfs -text
